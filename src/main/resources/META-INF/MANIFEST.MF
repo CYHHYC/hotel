@@ -20,5 +20,5 @@ Class-Path: jackson-datatype-jdk8-2.9.6.jar spring-boot-2.0.5.RELEASE.
  n-api-1.3.2.jar spring-core-5.0.9.RELEASE.jar validation-api-2.0.1.Fi
  nal.jar mybatis-spring-1.3.2.jar mybatis-3.4.6.jar spring-aop-5.0.9.R
  ELEASE.jar classmate-1.3.4.jar
-Main-Class: cn.mafangui.hotel.HotelApplication
+Main-Class: cn.edu.hotel.HotelApplication
 

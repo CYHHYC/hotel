@@ -3,7 +3,7 @@ DROP DATABASE
 IF EXISTS hotel;
 
 CREATE DATABASE hotel DEFAULT CHARACTER SET utf8;
-use hotel
+use hotel;
 
 -- 1客房类型表
 CREATE TABLE

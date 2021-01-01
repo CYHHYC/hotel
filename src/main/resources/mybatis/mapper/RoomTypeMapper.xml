@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.mafangui.hotel.mapper.RoomTypeMapper">
-  <resultMap id="BaseResultMap" type="cn.mafangui.hotel.entity.RoomType">
+<mapper namespace="cn.edu.hotel.mapper.RoomTypeMapper">
+  <resultMap id="BaseResultMap" type="cn.edu.hotel.entity.RoomType">
     <id column="type_id" jdbcType="INTEGER" property="typeId" />
     <result column="room_type" jdbcType="VARCHAR" property="roomType" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
@@ -48,7 +48,7 @@
     delete from room_type
     where type_id = #{typeId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="cn.mafangui.hotel.entity.RoomType">
+  <insert id="insert" parameterType="cn.edu.hotel.entity.RoomType">
     insert into room_type (type_id, room_type, remark,
       price, discount, area,
       bed_num, bed_size, window, rest
@@ -59,7 +59,7 @@
       #{rest,jdbcType=INTEGER},
       now(), now())
   </insert>
-  <insert id="insertSelective" parameterType="cn.mafangui.hotel.entity.RoomType">
+  <insert id="insertSelective" parameterType="cn.edu.hotel.entity.RoomType">
     insert into room_type
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="typeId != null">
@@ -130,7 +130,7 @@
       now(),
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.mafangui.hotel.entity.RoomType">
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.hotel.entity.RoomType">
     update room_type
     <set>
       <if test="roomType != null">
@@ -164,7 +164,7 @@
     </set>
     where type_id = #{typeId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.mafangui.hotel.entity.RoomType">
+  <update id="updateByPrimaryKey" parameterType="cn.edu.hotel.entity.RoomType">
     update room_type
     set room_type = #{roomType,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR},

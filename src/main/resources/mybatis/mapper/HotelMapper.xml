@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.mafangui.hotel.mapper.HotelMapper">
-  <resultMap id="BaseResultMap" type="cn.mafangui.hotel.entity.Hotel">
+<mapper namespace="cn.edu.hotel.mapper.HotelMapper">
+  <resultMap id="BaseResultMap" type="cn.edu.hotel.entity.Hotel">
     <id column="hotel_id" jdbcType="INTEGER" property="hotelId" />
     <result column="hotel_name" jdbcType="VARCHAR" property="hotelName" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
@@ -36,7 +36,7 @@
     delete from hotel_info
     where hotel_id = #{hotelId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="cn.mafangui.hotel.entity.Hotel">
+  <insert id="insert" parameterType="cn.edu.hotel.entity.Hotel">
     insert into hotel_info (hotel_id, hotel_name, phone, 
       telephone, email, address, 
       website, create_time, update_time
@@ -46,7 +46,7 @@
       #{website,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="cn.mafangui.hotel.entity.Hotel">
+  <insert id="insertSelective" parameterType="cn.edu.hotel.entity.Hotel">
     insert into hotel_info
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="hotelId != null">
@@ -99,7 +99,7 @@
       now(),
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.mafangui.hotel.entity.Hotel">
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.hotel.entity.Hotel">
     update hotel_info
     <set>
       <if test="hotelName != null">
@@ -124,7 +124,7 @@
     </set>
     where hotel_id = #{hotelId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.mafangui.hotel.entity.Hotel">
+  <update id="updateByPrimaryKey" parameterType="cn.edu.hotel.entity.Hotel">
     update hotel_info
     set hotel_name = #{hotelName,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},

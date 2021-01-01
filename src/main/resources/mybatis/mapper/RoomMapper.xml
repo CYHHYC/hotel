@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.mafangui.hotel.mapper.RoomMapper">
-  <resultMap id="BaseResultMap" type="cn.mafangui.hotel.entity.Room">
+<mapper namespace="cn.edu.hotel.mapper.RoomMapper">
+  <resultMap id="BaseResultMap" type="cn.edu.hotel.entity.Room">
     <id column="room_id" jdbcType="INTEGER" property="roomId" />
     <result column="room_number" jdbcType="VARCHAR" property="roomNumber" />
     <result column="type_id" jdbcType="INTEGER" property="typeId" />
@@ -60,7 +60,7 @@
     delete from room_info
     where room_id = #{roomId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="cn.mafangui.hotel.entity.Room">
+  <insert id="insert" parameterType="cn.edu.hotel.entity.Room">
     insert into room_info (room_id, room_number, type_id,
       room_type, room_price, room_discount,
       room_status, remark, create_time,
@@ -70,7 +70,7 @@
       #{roomStatus,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, now(),
       now())
   </insert>
-  <insert id="insertSelective" parameterType="cn.mafangui.hotel.entity.Room">
+  <insert id="insertSelective" parameterType="cn.edu.hotel.entity.Room">
     insert into room_info
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="roomId != null">
@@ -129,7 +129,7 @@
       now(),
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.mafangui.hotel.entity.Room">
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.hotel.entity.Room">
     update room_info
     <set>
       <if test="roomNumber != null">
@@ -157,7 +157,7 @@
     </set>
     where room_id = #{roomId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.mafangui.hotel.entity.Room">
+  <update id="updateByPrimaryKey" parameterType="cn.edu.hotel.entity.Room">
     update room_info
     set room_number = #{roomNumber,jdbcType=VARCHAR},
       type_id = #{typeId,jdbcType=INTEGER},

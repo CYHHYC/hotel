@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.mafangui.hotel.mapper.CheckInMapper">
-  <resultMap id="BaseResultMap" type="cn.mafangui.hotel.entity.CheckIn">
+<mapper namespace="cn.edu.hotel.mapper.CheckInMapper">
+  <resultMap id="BaseResultMap" type="cn.edu.hotel.entity.CheckIn">
     <id column="check_in_id" jdbcType="INTEGER" property="checkInId" />
     <result column="order_id" jdbcType="INTEGER" property="orderId" />
     <result column="room_number" jdbcType="VARCHAR" property="roomNumber" />
@@ -41,7 +41,7 @@
     delete from check_in
     where check_in_id = #{checkInId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="cn.mafangui.hotel.entity.CheckIn">
+  <insert id="insert" parameterType="cn.edu.hotel.entity.CheckIn">
     insert into check_in (check_in_id, order_id, room_id, room_number,
      peo_count, persons,
       ids, check_in_time, create_time,
@@ -50,7 +50,7 @@
        #{peoCount,jdbcType=INTEGER}, #{persons,jdbcType=VARCHAR},
       #{ids,jdbcType=VARCHAR}, now(), now(),now())
   </insert>
-  <insert id="insertSelective" parameterType="cn.mafangui.hotel.entity.CheckIn">
+  <insert id="insertSelective" parameterType="cn.edu.hotel.entity.CheckIn">
     insert into check_in
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="checkInId != null">
@@ -106,7 +106,7 @@
       now(),
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.mafangui.hotel.entity.CheckIn">
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.hotel.entity.CheckIn">
     update check_in
     <set>
       <if test="orderId != null">
@@ -148,7 +148,7 @@
       update_time = now()
     where room_number = #{roomNumber,jdbcType=VARCHAR} and check_out_time = '0000-00-00 00:00:00'
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.mafangui.hotel.entity.CheckIn">
+  <update id="updateByPrimaryKey" parameterType="cn.edu.hotel.entity.CheckIn">
     update check_in
     set order_id = #{orderId,jdbcType=INTEGER},
       room_number = #{roomNumber,jdbcType=VARCHAR},

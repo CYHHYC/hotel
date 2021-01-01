@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.mafangui.hotel.mapper.WorkerMapper">
-  <resultMap id="BaseResultMap" type="cn.mafangui.hotel.entity.Worker">
+<mapper namespace="cn.edu.hotel.mapper.WorkerMapper">
+  <resultMap id="BaseResultMap" type="cn.edu.hotel.entity.Worker">
     <id column="worker_id" jdbcType="INTEGER" property="workerId" />
     <result column="role" jdbcType="VARCHAR" property="role" />
     <result column="username" jdbcType="VARCHAR" property="username" />
@@ -52,7 +52,7 @@
     delete from worker_info
     where worker_id = #{workerId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="cn.mafangui.hotel.entity.Worker">
+  <insert id="insert" parameterType="cn.edu.hotel.entity.Worker">
     insert into worker_info (worker_id, role, username,
       password, name, gender,
       phone,, email,
@@ -64,7 +64,7 @@
       #{address,jdbcType=VARCHAR}, now(),now()
       )
   </insert>
-  <insert id="insertSelective" parameterType="cn.mafangui.hotel.entity.Worker">
+  <insert id="insertSelective" parameterType="cn.edu.hotel.entity.Worker">
     insert into worker_info
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="workerId != null">
@@ -129,7 +129,7 @@
       now(),
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.mafangui.hotel.entity.Worker">
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.hotel.entity.Worker">
     update worker_info
     <set>
       <if test="role != null">
@@ -159,7 +159,7 @@
     </set>
     where worker_id = #{workerId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.mafangui.hotel.entity.Worker">
+  <update id="updateByPrimaryKey" parameterType="cn.edu.hotel.entity.Worker">
     update worker_info
     set role = #{role,jdbcType=VARCHAR},
       username = #{username,jdbcType=VARCHAR},
