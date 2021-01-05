@@ -84,7 +84,7 @@ public class UserController {
         try{
             sb.replace(5,12,"********");
         }catch (Exception e){
-            throw new Exception(e.getMessage());
+			System.out.println(e.getMessage());
         }
 
         user.setIdcard(sb.toString());
