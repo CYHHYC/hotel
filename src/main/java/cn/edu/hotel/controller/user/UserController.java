@@ -75,13 +75,18 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/profile")
-    public AjaxResult getProfile(HttpServletRequest request){
+    public AjaxResult getProfile(HttpServletRequest request) throws Exception {
         String username = (String) request.getSession().getAttribute("username");
         User user = userService.selectByUsername(username);
         if(user==null) return ResponseTool.failed("未知错误");
         user.setPassword(null);
         StringBuilder sb = new StringBuilder(user.getIdcard());
-        sb.replace(5,12,"********");
+        try{
+            sb.replace(5,12,"********");
+        }catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+
         user.setIdcard(sb.toString());
         return ResponseTool.success(user);
     }
