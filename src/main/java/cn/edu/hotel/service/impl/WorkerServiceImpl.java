@@ -53,13 +53,13 @@ public class WorkerServiceImpl implements WorkerService {
 
     @Override
     public Worker login(String username, String password,String role) {
-        String pass = MD5Utils.MD5Encode(password);
-        return workerMapper.selectByUsernameAndPassword(username,pass,role);
+        //String password = MD5Utils.MD5Encode(password);
+        return workerMapper.selectByUsernameAndPassword(username,password,role);
     }
 
     @Override
     public Worker login(String username, String password) {
-        String pass = MD5Utils.MD5Encode(password);
-        return workerMapper.selectByUsernamePassword(username,pass);
+       // String password = MD5Utils.MD5Encode(password);
+        return workerMapper.selectByUsernamePassword(username,password);
     }
 }
