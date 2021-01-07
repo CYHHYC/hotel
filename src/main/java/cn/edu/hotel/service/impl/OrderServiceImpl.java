@@ -30,6 +30,13 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public int addOrder(Order order) {
+        try{
+            roomTypeService.updateRest(order.getRoomTypeId(),-1);
+        }catch (Exception e){
+            //添加订单失败。
+            System.out.println(e.getMessage());
+        }
+
         return orderMapper.insertSelective(order);
     }
 
@@ -74,10 +81,10 @@ public class OrderServiceImpl implements OrderService {
             return -3;
         }
         //更新剩余房间数量成功
-        if (roomTypeService.updateRest(order.getRoomTypeId(),-1) != 1){
-            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
-            return -2;
-        }
+        // if (roomTypeService.updateRest(order.getRoomTypeId(),-1) != 1){
+        //     TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+        //     return -2;
+        // }
         //更新订单状态为已支付
         order.setOrderStatus(OrderStatus.PAID.getCode());
         //更新数据库信息。
@@ -101,9 +108,9 @@ public class OrderServiceImpl implements OrderService {
         if (order == null ) return -3;
         //改为取消状态
         order.setOrderStatus(OrderStatus.WAS_CANCELED.getCode());
-        // if (roomTypeService.updateRest(order.getRoomTypeId(),1) != 1){
-        //     return -2;
-        // }2
+        if (roomTypeService.updateRest(order.getRoomTypeId(),1) != 1){
+            return -2;
+        }
         return orderMapper.updateByPrimaryKeySelective(order);
     }
 
