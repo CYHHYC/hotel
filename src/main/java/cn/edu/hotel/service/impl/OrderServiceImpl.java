@@ -101,9 +101,9 @@ public class OrderServiceImpl implements OrderService {
         if (order == null ) return -3;
         //改为取消状态
         order.setOrderStatus(OrderStatus.WAS_CANCELED.getCode());
-        if (roomTypeService.updateRest(order.getRoomTypeId(),1) != 1){
-            return -2;
-        }
+        // if (roomTypeService.updateRest(order.getRoomTypeId(),1) != 1){
+        //     return -2;
+        // }2
         return orderMapper.updateByPrimaryKeySelective(order);
     }
 
